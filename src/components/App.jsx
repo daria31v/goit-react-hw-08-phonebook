@@ -7,6 +7,10 @@ import { selectIsLoading, selectError } from '../redux/selectors';
 import { fetchAllContacts } from '../redux/operations';
 import { useEffect } from 'react';
 
+import { Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+
 export const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
@@ -22,9 +26,20 @@ export const App = () => {
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />
-      {isLoading && !error && <h3>Please waite the request in progress...🐌</h3>}
-      {error && !isLoading && <h3>Something went wrong... ♫ ♫ ♫ Try later ♫ ♫ ♫</h3>}
-       <ContactList />
+      {isLoading && !error && (
+        <h3>Please waite the request in progress...🐌</h3>
+      )}
+      {error && !isLoading && (
+        <h3>Something went wrong... ♫ ♫ ♫ Try later ♫ ♫ ♫</h3>
+      )}
+      <ContactList />
+
+      <Button variant="outlined" startIcon={<DeleteIcon />}>
+        Delete
+      </Button>
+      <Button variant="contained" endIcon={<SendIcon />}>
+        Send
+      </Button>
     </Box>
   );
 };
