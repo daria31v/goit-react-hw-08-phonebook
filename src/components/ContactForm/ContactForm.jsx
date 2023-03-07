@@ -8,7 +8,7 @@ import {
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/operations';
+import { addContact } from '../../redux/contacts/operations';
 import { selectContacts } from '../../redux/selectors';
 
 const FormError = ({ name }) => {

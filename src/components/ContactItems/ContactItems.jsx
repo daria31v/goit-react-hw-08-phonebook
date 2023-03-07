@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { DeleteBtn, Item, WrapItem, Wrap } from './ContactItems.styled';
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/contacts/operations';
 import { useDispatch } from 'react-redux';
 import { GiRotaryPhone } from 'react-icons/gi';
 
