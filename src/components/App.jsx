@@ -15,7 +15,7 @@ const HomeView = lazy(() => import('../views/HomeView'));
 const RegisterView = lazy(() => import('../views/RegisterView'));
 const LoginView = lazy(() => import('../views/LoginView'));
 const ContactsView = lazy(() => import('../views/ContactsView'));
-// const NotFoundView = lazy(() => import('../views/NotFoundView'));
+const NotFoundView = lazy(() => import('../views/NotFoundView'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -30,38 +30,40 @@ export const App = () => {
   ) : (
     <Box>
       <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomeView />} />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute redirectTo="/contacts" component={<RegisterView />} />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute redirectTo="/contacts" component={<LoginView />} />
-          }
-        />
-        <Route
-          path="/contacts"
-          element={
-            <PrivateRoute redirectTo="/login" component={<ContactsView />} />
-          }
-        />
-         {/* <Route
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomeView />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<RegisterView />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginView />}
+              />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<ContactsView />} />
+            }
+          />
+          <Route
           path="/notfound"
           element={
-            <PrivateRoute redirectTo="/notfound" component={<NotFoundView />} />
+            <RestrictedRoute redirectTo="*" component={<NotFoundView />} />
           }
-        /> */}
-      </Route>
-    </Routes>
+        />
+        </Route>
+      </Routes>
     </Box>
   );
 };
-  
-
-
-

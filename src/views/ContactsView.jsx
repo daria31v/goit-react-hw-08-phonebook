@@ -30,7 +30,7 @@ const ContactsView = () => {
         <h3>Please waite the request in progress...🐌</h3>
       )}
       {error && !isLoading && (
-        <h3>Something went wrong... ♫ ♫ ♫ Try later ♫ ♫ ♫</h3>
+        <h4>Something went wrong... ♫ ♫ ♫ Try later ♫ ♫ ♫</h4>
       )}
       <ContactList />
     </>
