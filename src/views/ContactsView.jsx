@@ -24,7 +24,7 @@ const ContactsView = () => {
       </Helmet>
 
       <ContactForm />
-      <h2>Contacts</h2>
+      {/* <h2>Contacts</h2>
       <Filter />
       {isLoading && !error && (
         <h3>Please waite the request in progress...🐌</h3>
@@ -32,7 +32,7 @@ const ContactsView = () => {
       {error && !isLoading && (
         <h3>Something went wrong... ♫ ♫ ♫ Try later ♫ ♫ ♫</h3>
       )}
-      <ContactList />
+      <ContactList /> */}
     </>
   );
 };

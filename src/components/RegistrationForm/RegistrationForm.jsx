@@ -49,13 +49,13 @@ export const RegisterForm = () => {
         <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
             <lable style={styles.label}>
                 Name
-            <input type = 'text' name="name" /> </lable>
+            <input type = "text" name="name" /> </lable>
             <lable style={styles.label}>
                 Email
-            <input type = 'email' name="email" /> </lable>
+            <input type = "email" name="email" /> </lable>
             <lable style={styles.label}>
                 Password
-            <input type = 'password' name="password" /> </lable>
+            <input type = "password" name="password" /> </lable>
             <button type='submit'>Create profile</button>
         </form>
     </div>

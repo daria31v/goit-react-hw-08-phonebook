@@ -1,15 +1,16 @@
-import { useSelector } from 'react-redux';
-import { selectIsLoggedIn } from '../../redux/auth/auth-selectors';
+import { useAuth } from '../../hooks/useAuth';
 import { Navigation } from '../Navigations/Navigation';
 import { AuthNav } from '../Navigations/AuthNav';
 import { UserMenu } from '../UserMenu/UserMenu';
+import {Header} from './AppBar.styled';
 
 export const AppBar = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const {isLoggedIn} = useAuth();
+  
   return (
-    <header>
+    <Header>
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </header>
+    </Header>
   );
 };

@@ -15,7 +15,7 @@ const HomeView = lazy(() => import('../views/HomeView'));
 const RegisterView = lazy(() => import('../views/RegisterView'));
 const LoginView = lazy(() => import('../views/LoginView'));
 const ContactsView = lazy(() => import('../views/ContactsView'));
-const NotFoundView = lazy(() => import('../views/NotFoundView'));
+// const NotFoundView = lazy(() => import('../views/NotFoundView'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -35,27 +35,27 @@ export const App = () => {
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/register" component={<RegisterView />} />
+            <RestrictedRoute redirectTo="/contacts" component={<RegisterView />} />
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute redirectTo="/login" component={<LoginView />} />
+            <RestrictedRoute redirectTo="/contacts" component={<LoginView />} />
           }
         />
         <Route
-          path="/tasks"
+          path="/contacts"
           element={
-            <PrivateRoute redirectTo="/contacts" component={<ContactsView />} />
+            <PrivateRoute redirectTo="/login" component={<ContactsView />} />
           }
         />
-         <Route
-          path="/tasks"
+         {/* <Route
+          path="/notfound"
           element={
             <PrivateRoute redirectTo="/notfound" component={<NotFoundView />} />
           }
-        />
+        /> */}
       </Route>
     </Routes>
     </Box>
