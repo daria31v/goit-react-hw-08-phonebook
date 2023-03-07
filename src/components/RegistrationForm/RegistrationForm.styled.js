@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const RegistForm = styled.form`
   width: 320px;
+
 `;
 
-export const Label = styled.label`
+export const RegistLabel = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 `;
+

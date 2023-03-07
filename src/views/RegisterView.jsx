@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { RegisterForm } from '../components/RegistrationForm/RegistrationForm';
+import { RegistrationForm } from '../components/RegistrationForm/RegistrationForm';
 
 const RegisterView = () => {
   return (
@@ -7,7 +7,7 @@ const RegisterView = () => {
       <Helmet>
         <title>Registration</title>
       </Helmet>
-      <RegisterForm />
+      <RegistrationForm />
     </div>
   );
 };
