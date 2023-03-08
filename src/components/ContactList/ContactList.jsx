@@ -7,7 +7,7 @@ import { selectFilteredContacts } from '../../redux/selectors';
 
 export const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
-  // console.log(contacts)
+  console.log(contacts)
 
   return (
     <>
@@ -16,7 +16,7 @@ export const ContactList = () => {
         <div>
           {contacts.map(contact => (
             <Contact key={contact.id}>
-              <ContactItems item={contact} />
+              <ContactItems id={contact.id} name={contact.name} number={contact.number}/>
             </Contact>
           ))}
         </div>

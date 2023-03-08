@@ -56,12 +56,7 @@ export const App = () => {
               <PrivateRoute redirectTo="/login" component={<ContactsView />} />
             }
           />
-          <Route
-          path="/notfound"
-          element={
-            <RestrictedRoute redirectTo="*" component={<NotFoundView />} />
-          }
-        />
+          <Route path="*" element={<NotFoundView />} />
         </Route>
       </Routes>
     </Box>

@@ -14,7 +14,7 @@ const ContactsView = () => {
   const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchAllContacts());
+    dispatch(fetchAllContacts())    
   }, [dispatch]);
 
   return (
