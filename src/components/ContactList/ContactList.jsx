@@ -7,11 +7,11 @@ import { selectFilteredContacts } from '../../redux/selectors';
 
 export const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
-  console.log(contacts)
+  
 
   return (
     <>
-      {/* {contacts.length > 0 && ( */}
+      
       <List>
         <div>
           {contacts.map(contact => (
@@ -21,7 +21,7 @@ export const ContactList = () => {
           ))}
         </div>
       </List>
-      {/* )} */}
+      
     </>
   );
 };
