@@ -42,7 +42,7 @@ export const existContacts = createAsyncThunk(
   'contacts/existingContacts',
   async (data, thunkAPI) => {
     try {
-      const body = {id: data.id, name: data.name, number: data.number}
+      const body = {name: data.name, number: data.number}
       const response = await axios.patch(`/contacts/${data.id}`, body);
       console.log('existing', response.data);
       return response.data;
