@@ -7,6 +7,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { fetchAllContacts } from '../redux/contacts/operations';
 import { selectIsLoading } from '../redux/selectors';
+import { Typography } from '@mui/material';
 
 const ContactsView = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const ContactsView = () => {
   const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchAllContacts())    
+    dispatch(fetchAllContacts());
   }, [dispatch]);
 
   return (
@@ -22,16 +23,24 @@ const ContactsView = () => {
       <Helmet>
         <title>Your Phonebook</title>
       </Helmet>
-
       <ContactForm />
-      <h2>Contacts</h2>
+
+      <Typography
+        variant="h5"
+        component="h3"
+        sx={{
+          color: '#3493c9',
+          marginBottom: '25px',
+          alignItems: 'center',
+          justifyItems: 'center',
+        }}
+      >
+        Your Phonebook :
+      </Typography>
+
       <Filter />
-      {isLoading && !error && (
-        <h3>Please waite the request in progress...🐌</h3>
-      )}
-      {error && !isLoading && (
-        <h4>Something went wrong... ♫ ♫ ♫ Try later ♫ ♫ ♫</h4>
-      )}
+      {isLoading && !error && <p>Please waite the request in progress...🐌</p>}
+      {error && !isLoading && <p>Something went wrong... ♫ ♫ ♫ </p>}
       <ContactList />
     </>
   );

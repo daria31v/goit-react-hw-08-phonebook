@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types';
-import { DeleteBtn, Item, WrapItem, Wrap } from './ContactItems.styled';
+import { WrapItem, Wrap, Item } from './ContactItems.styled';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Box from '@mui/material/Box';
+import { Input } from '@mui/material';
 import { deleteContact } from 'redux/contacts/operations';
 import { useDispatch } from 'react-redux';
 import { GiRotaryPhone } from 'react-icons/gi';
@@ -38,15 +42,15 @@ export const ContactItems = ({ id, name: nameValue, number: numberValue }) => {
 
   return (
     <Wrap>
-      <GiRotaryPhone />
       <WrapItem>
+        <GiRotaryPhone /> 
         {isEdit ? (
-          <input type="text" value={name} name='name' onChange={handleChange} />
+          <Input type="text" value={name} name='name' onChange={handleChange} />
         ) : (
           <Item>{name}:</Item>
         )}
         {isEdit ? (
-          <input
+          <Input
             type="text"
             value={number}
             name='number'
@@ -56,12 +60,24 @@ export const ContactItems = ({ id, name: nameValue, number: numberValue }) => {
           <Item>{number}</Item>
         )}
       </WrapItem>
-      <div>
-        <DeleteBtn onClick={handleDelete}>Delete</DeleteBtn>
-        <DeleteBtn onClick={handleChangeMode}>
+
+      <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& > *': {
+          m: 1,
+        },
+      }}
+    >
+      <ButtonGroup variant="outlined" aria-label="outlined button group">
+        <Button onClick={handleDelete}>Delete</Button>
+        <Button onClick={handleChangeMode}>
           {isEdit ? 'Save' : 'Edit'}
-        </DeleteBtn>
-      </div>
+        </Button>
+        </ButtonGroup>
+      </Box>
     </Wrap>
   );
 };

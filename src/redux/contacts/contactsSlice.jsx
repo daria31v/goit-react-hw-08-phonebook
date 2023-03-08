@@ -29,7 +29,7 @@ const contactSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      
+
       .addCase(addContact.pending, (state, action) => {
         state.isLoading = true;
       })
@@ -42,7 +42,7 @@ const contactSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      
+
       .addCase(existContacts.pending, (state, action) => state)
       .addCase(existContacts.fulfilled, (state, action) => {
         const index = state.items.findIndex(
@@ -51,7 +51,7 @@ const contactSlice = createSlice({
         state.items.splice(index, 1, action.payload);
       })
       .addCase(existContacts.rejected, (state, action) => state)
-      
+
       .addCase(deleteContact.pending, (state, action) => {
         state.isLoading = true;
       })

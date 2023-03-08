@@ -1,22 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/auth-operations';
-import {Label, Form} from './LoginForm.styled'
-
-
+import { Label, Form } from './LoginForm.styled';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import { Input } from '@mui/material';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-
-  // const handleChange = ({ target: { name, value } }) => {
-  //   switch (name) {
-  //     case 'email':
-  //       return setEmail(value);
-  //     case 'password':
-  //       return setPassword(value);
-  //     default:
-  //       return;
-  //   }
-  // };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -33,17 +23,20 @@ export const LoginForm = () => {
 
   return (
     <>
-    <Form onSubmit={handleSubmit} autoComplete="off">
-      <Label >
-        Email
-        <input type="email" name="email" />
-      </Label>
-      <Label >
-        Password
-        <input type="password" name="password" />
-      </Label>
-      <button type="submit">Log In</button>
-    </Form>
+      <Form onSubmit={handleSubmit} autoComplete="off">
+        <Label>
+          Email
+          <Input type="email" name="email" />
+        </Label>
+        <Label>
+          Password
+          <Input type="password" name="password" />
+        </Label>
+
+        <ButtonGroup variant="outlined" aria-label="outlined button group">
+          <Button type="submit">Log In</Button>
+        </ButtonGroup>
+      </Form>
     </>
   );
 };

@@ -1,24 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/auth-operations';
-import {RegistForm, RegistLabel} from './RegistrationForm.styled'
-
-
+import { RegistForm, RegistLabel } from './RegistrationForm.styled';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import { Input } from '@mui/material';
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
-
-  // const handleChange = ({target: {name,value}}) => {
-  //     switch(name){
-  //         case 'name':
-  //         return setName(value);
-  //         case 'email':
-  //         return setEmail(value);
-  //         case 'password':
-  //         return setPassword(value);
-  //         default:
-  //             return;
-  //     }
-  // };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -36,19 +24,22 @@ export const RegistrationForm = () => {
   return (
     <div>
       <RegistForm onSubmit={handleSubmit} autoComplete="off">
-        <RegistLabel >
+        <RegistLabel>
           Name
-          <input type="text" name="name" />{' '}
+          <Input type="text" name="name" />{' '}
         </RegistLabel>
-        <RegistLabel >
+        <RegistLabel>
           Email
-          <input type="email" name="email" />{' '}
+          <Input type="email" name="email" />{' '}
         </RegistLabel>
-        <RegistLabel >
+        <RegistLabel>
           Password
-          <input type="password" name="password" />{' '}
+          <Input type="password" name="password" />{' '}
         </RegistLabel>
-        <button type="submit">Create profile</button>
+
+        <ButtonGroup variant="outlined" aria-label="outlined button group">
+          <Button type="submit">Create profile</Button>
+        </ButtonGroup>
       </RegistForm>
     </div>
   );

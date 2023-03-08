@@ -7,7 +7,9 @@ display: inline-block;
     padding: 12px;
     font-weight: 700;
     color: #2a363b;
+    :hover,
+    :focus,
     :active{
-        color: #e84a5f;
+        color: #3493c9;
     }
 `;
