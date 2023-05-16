@@ -36,23 +36,9 @@ export const logIn = createAsyncThunk(
     }
   }
 );
-// ****
-// export const profile = createAsyncThunk(
-//   'auth/login',
-//   async (credentials, thunkAPI) => {
-//     try {
-//       const response = await axios.post('/profile', credentials);
-//       setAuthHeader(response.data.token);
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
-export const logOut = createAsyncThunk('users/logout', async (_, thunkAPI) => {
+export const logOut = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/logout');
+    await axios.post('/users/logout');
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -73,6 +59,22 @@ export const refreshUser = createAsyncThunk(
       setAuthHeader(persistedToken);
       const response = await axios.get('/users/current');
       return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const editAvatar = createAsyncThunk(
+  'auth/avatars',
+  async (file, thunkAPI) => {
+    try {
+      const formData = new FormData();
+      formData.append('avatar', file);
+      const response = await axios.patch('users/avatars', formData, {
+        headers: { 'content-type': 'multipart/form-data' },
+      });
+      return response.data.avatarURL;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

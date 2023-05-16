@@ -11,23 +11,31 @@ import { Typography } from '@mui/material';
 import Icon from '@mui/material/Icon';
 
 
-const FormError = ({ name }) => {
+const FormError = ({ name, number }) => {
   return (
-    <ErrorMessage
+      <ErrorMessage
       name={name}
       render={message => <ErrorText>{message}</ErrorText>}
     />
-  );
+  
+   );
 };
+
+
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const listContacts = useSelector(selectContacts);
 
   const submitForm = (values, { resetForm }) => {
-    
+        console.log(values.number);
     if (listContacts.some(item => item.name === values.name)) {
       alert(`Contact <${values.name}> has already been added ⛔`)
+      return
+    }
+
+    if (!values.number.includes("+38")){
+      alert(`Number <${values.number}> must start with +38!`)
       return
     }
 

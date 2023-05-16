@@ -11,13 +11,18 @@ import { useState } from 'react';
 import { existContacts } from '../../redux/contacts/operations';
 
 export const ContactItems = ({ id, name: nameValue, number: numberValue }) => {
+  
   const dispatch = useDispatch();
   const [isEdit, setIsEdit] = useState(false);
   const [name, setName] = useState(nameValue);
   const [number, setNumber] = useState(numberValue);
 
-  const handleDelete = () => dispatch(deleteContact(id));
-
+  const handleDelete = () => {
+    dispatch(deleteContact(id))
+    alert("Contact deleted")
+    return;    
+  };
+  
   const handleChangeMode = () => {
     if (isEdit) {
       setIsEdit(prev => !prev);

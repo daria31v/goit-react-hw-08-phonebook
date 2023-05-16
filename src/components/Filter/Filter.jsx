@@ -14,7 +14,7 @@ export const Filter = () => {
   const changeFilter = e => {
     const value = e.currentTarget.value.toLowerCase();
     dispatch(setFilter(value));
-    console.log(value)
+    
   };
 
   return (

@@ -13,10 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
-  console.log(user);
+  
   return (
     <Box sx={{ display: 'flex', justifyItems: 'end', alignItems: 'center' }}>
-      <img src={user.avatarURL} alt="" width="45px" />
+      <img src={"http://localhost:3003/"+ user.avatarURL} alt="" width="45px" />
       <Typography component={'span'}
         sx={{ width: '100%', marginLeft: '10px', marginRight: '10px' }}
       >
